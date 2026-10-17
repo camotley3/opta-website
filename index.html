@@ -168,6 +168,25 @@
     text-decoration: none;
   }
 
+  @media (min-width: 768px) {
+    /* Desktop settles on whole sections. Not on mobile: sections can outgrow the screen there. */
+    html { scroll-snap-type: y proximity; }
+    section { scroll-snap-align: start; }
+
+    /* Tighten the "Until now." → "We’re building…" rhythm by trimming empty space:
+       section 1's block shifts down and section 2's group shifts up, each by --rhythm-shift
+       (139px @ 1080). Asymmetric padding/margin moves a centered block by half the difference. */
+    :root { --rhythm-shift: 12.84vh; }
+    .s1 { padding-top: calc(12vh + 2 * var(--rhythm-shift)); }
+    .s2 .lockup { margin-bottom: calc(25.6px - var(--lockup-gap) + 2 * var(--rhythm-shift)); }
+
+    /* Section 3 fits one screen, per the Figma frame: auto line-height, first label 124px
+       from the section top, 80px below the stats row (@ 1080). */
+    .s3 { padding-top: 11.48vh; padding-bottom: 7.4vh; }
+    .s3 :is(.label, .headline, .body, .figure, .descriptor) { line-height: normal; }
+    .s3 .body { max-width: 66.82vw; } /* 1,283px @ 1920, Figma's text width */
+  }
+
   @media (max-width: 767px) {
     :root {
       --size-large: 28px;
