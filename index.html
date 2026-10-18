@@ -19,7 +19,6 @@
     /* Sizes are specified at 1920px wide and scale with the viewport. */
     --size-large: clamp(32px, 2.5vw, 80px);      /* 48px @ 1920 */
     --size-label: clamp(20px, 1.4583vw, 46px);   /* 28px @ 1920 */
-    --size-headline: clamp(18px, 1.3542vw, 43px); /* 26px @ 1920 */
     --size-figure: clamp(28px, 1.6667vw, 53px);  /* 32px @ 1920 */
     --size-body: clamp(18px, 1.25vw, 40px);      /* 24px @ 1920 */
     --lockup-width: clamp(180px, 13.8vw, 440px); /* 265px @ 1920 */
@@ -99,13 +98,6 @@
     margin-bottom: 0.9em;
   }
 
-  .headline {
-    font-size: var(--size-headline);
-    font-weight: 300;
-    line-height: 1.4;
-    margin-bottom: 0.9em;
-  }
-
   .body {
     font-size: var(--size-body);
     font-weight: 400;
@@ -175,7 +167,7 @@
     /* Positions follow the Figma frames (1920×1080): tops in vh, x in vw, spacing in em.
        Line height is the frames' auto line height: 60px @ 48, 30px @ 24. */
     .s1, .s2, .s3 { justify-content: flex-start; }
-    :is(.s1, .s2, .s3) :is(.statement, .label, .headline, .body, .figure, .descriptor) { line-height: 1.25; }
+    :is(.s1, .s2, .s3) :is(.statement, .label, .body, .figure, .descriptor) { line-height: 1.25; }
 
     /* Section 1: block at x 428, top 259, 1,152 wide; line tops 259 / 351 / 492 / 613. */
     .s1 { padding: 23.98vh 17.71vw 12vh 22.29vw; }
@@ -187,15 +179,14 @@
     .s2 { padding-top: 35.28vh; }
     .s2 .lockup { margin-top: 11.94vh; margin-bottom: 0; }
 
-    /* Section 3: x 318; tops 154 / 204 / 357 / 413 / 456 / 628 / 686. */
-    .s3 { padding: 14.26vh 8vw 7.4vh 16.56vw; }
+    /* Section 3: x 318; tops 176 / 226 / 395 / 440 / 640 / 698. */
+    .s3 { padding: 16.3vh 8vw 7.4vh 16.56vw; }
     .s3 .sub + .sub { margin-top: 0; }
     .s3 .label { margin-bottom: 0; }
     .s3 .label + .body { margin-top: 0.625em; }
-    .s3 .sub:nth-child(2) .label { margin-top: 2.25em; }
-    .s3 .headline { margin-bottom: 0; margin-top: 0.8077em; }
-    .s3 .headline + .body { margin-top: 0.4375em; }
-    .s3 .sub:nth-child(3) .label { margin-top: 2.9286em; }
+    .s3 .sub:nth-child(2) .label { margin-top: 2.8214em; }
+    .s3 .sub:nth-child(2) .body { margin-top: 0.4167em; }
+    .s3 .sub:nth-child(3) .label { margin-top: 3.9286em; }
     .s3 .body { max-width: 66.82vw; } /* 1,283px */
     .s3 .stats {
       margin-top: calc(var(--size-label) * 0.8214);
@@ -264,7 +255,6 @@
 
   <div class="sub">
     <h2 class="label">AI, applied safely</h2>
-    <p class="headline">Applying AI safely is now a global priority. Opta is an architecture for doing it.</p>
     <p class="body">Opta is a model for how to use AI safely and responsibly to help you realize the care capacity you’ve already paid for. It runs on an architecture that is safer than an AI agent — by construction. Intelligence proposes, and nothing acts on its own reasoning. And it runs without a frontier model at runtime, so the operation it serves adds nothing to the compute footprint the world is now weighing.</p>
   </div>
 
