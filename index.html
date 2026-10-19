@@ -18,7 +18,7 @@
 
     /* Sizes are specified at 1920px wide and scale with the viewport. */
     --size-large: clamp(32px, 2.5vw, 80px);      /* 48px @ 1920 */
-    --size-label: clamp(20px, 1.4583vw, 46px);   /* 28px @ 1920 */
+    --size-label: clamp(20px, 1.3542vw, 43px);   /* 26px @ 1920 */
     --size-figure: clamp(28px, 1.6667vw, 53px);  /* 32px @ 1920 */
     --size-body: clamp(18px, 1.25vw, 40px);      /* 24px @ 1920 */
     --lockup-width: clamp(180px, 13.8vw, 440px); /* 265px @ 1920 */
@@ -178,17 +178,16 @@
     .s2 { padding-top: 35.28vh; }
     .s2 .lockup { margin-top: 11.94vh; margin-bottom: 0; }
 
-    /* Section 3: x 318; tops 176 / 226 / 395 / 440 / 636 / 694. */
+    /* Section 3: x 318; tops 176 / 218 / 395 / 437 / 631 / 673. */
     .s3 { padding: 16.3vh 8vw 7.4vh 16.56vw; }
     .s3 .sub + .sub { margin-top: 0; }
     .s3 .label { margin-bottom: 0; }
-    .s3 .label + .body { margin-top: 0.625em; }
-    .s3 .sub:nth-child(2) .label { margin-top: 2.8214em; }
-    .s3 .sub:nth-child(2) .body { margin-top: 0.4167em; }
-    .s3 .sub:nth-child(3) .label { margin-top: 3.7857em; }
+    .s3 .label + .body { margin-top: 0.3958em; }
+    .s3 .sub:nth-child(2) .label { margin-top: 3.3462em; }
+    .s3 .sub:nth-child(3) .label { margin-top: 2.8462em; }
     .s3 .body { max-width: 66.82vw; } /* 1,283px */
     .s3 .stats {
-      margin-top: calc(var(--size-label) * 0.8214);
+      margin-top: calc(var(--size-label) * 0.3654);
       grid-template-columns: 30.31vw 30.42vw auto; /* columns at x 318 / 900 / 1484 */
       gap: 0;
       max-width: 75.68vw; /* 1,453px */
