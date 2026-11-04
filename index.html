@@ -3,40 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Opta — The operational control layer for hospitals</title>
-<meta name="description" content="Opta is building the operational control layer for hospitals.">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>Opta — The whole team. The whole picture.</title>
+<meta name="description" content="Improving the care experience for patients and providers by letting the team see what’s ahead and act in time.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Opta — The whole team. The whole picture.">
+<meta property="og:description" content="Improving the care experience for patients and providers by letting the team see what’s ahead and act in time.">
+<meta property="og:url" content="https://opta.health/">
+<meta property="og:image" content="https://opta.health/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="assets/favicon-ring.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- FONT: Essential Sans (Thin for body, Regular for the wordmark) per the Figma file.
+     Outfit is the stand-in until the Essential Sans webfont files are added to /assets/fonts. -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #3FC1C9;
-    --slate: #364F6B;
-    --white: #FFFFFF;
+    --ink: #111111;        /* headlines and body */
+    --grey: #726d6d;       /* wordmark, company line, footer */
+    --page: #FFFFFF;
 
     /* Sizes are specified at 1920px wide and scale with the viewport. */
-    --size-large: clamp(32px, 2.5vw, 80px);      /* 48px @ 1920 */
-    --size-label: clamp(20px, 1.3542vw, 43px);   /* 26px @ 1920 */
-    --size-figure: clamp(28px, 1.6667vw, 53px);  /* 32px @ 1920 */
-    --size-body: clamp(18px, 1.25vw, 40px);      /* 24px @ 1920 */
-    --lockup-width: clamp(180px, 13.8vw, 440px); /* 265px @ 1920 */
-    --lockup-gap: 13.889vh;                      /* 150px @ 1080: statement text box to lockup */
-    --margin-left: 20vw;
-    --margin-right: 12vw;
+    --size-h: clamp(30px, 2.9vw, 72px);          /* 56px @ 1920 — section headlines */
+    --size-body: clamp(19px, 1.5625vw, 44px);    /* 30px @ 1920 */
+    --size-tag: clamp(17px, 1.3vw, 36px);        /* 25px @ 1920 — tagline under the wordmark */
+    --size-desc: clamp(22px, 2.08vw, 56px);      /* 40px @ 1920 — hero descriptor */
+    --size-co: clamp(15px, 1.2vw, 30px);         /* company line */
+    --lockup-w: clamp(170px, 14.6vw, 420px);     /* 280px @ 1920 (mark + wordmark) */
+    --lockup-w-small: clamp(120px, 9.4vw, 260px);/* 180px @ 1920 on the closing screen */
+    --measure: 36em;                             /* body line length */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { -webkit-text-size-adjust: 100%; }
 
   body {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    color: var(--slate);
-    background: var(--green);
+    font-family: 'Essential Sans', 'Outfit', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 200;
+    color: var(--ink);
+    background: var(--page);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   section {
@@ -44,244 +51,155 @@
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
-
-  .green { background: var(--green); }
-  .white { background: var(--white); }
-
-  .statement {
-    font-size: var(--size-large);
-    font-weight: 300;
-    line-height: 1.3;
-  }
-
-  .left {
-    padding: 12vh var(--margin-right) 12vh var(--margin-left);
-  }
-
-  .center {
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 12vh 8vw;
+    padding: 10vh 8vw;
   }
 
-  .lockup {
-    display: block;
-    width: var(--lockup-width);
-    height: auto;
-  }
+  img { display: block; max-width: 100%; height: auto; }
 
-  /* Section 1 */
-  .s1 .statement + .statement { margin-top: 0.15em; }
-  .s1 .until-now {
-    font-weight: 400;
-    margin-top: 1.3em !important;
-  }
+  .lockup { width: var(--lockup-w); }
+  .lockup.small { width: var(--lockup-w-small); }
 
-  /* Section 2 */
-  /* Centering is computed as if the gap were 25.6px, so the headline holds its position and
-     the lockup drops below it; the group sits below center by design. */
-  .s2 .lockup {
-    margin-top: var(--lockup-gap);
-    margin-bottom: calc(25.6px - var(--lockup-gap));
-  }
-
-  /* Section 3 */
-  .s3 .sub + .sub { margin-top: 4.5em; }
-
-  .label {
-    font-size: var(--size-label);
-    font-weight: 500;
+  .tagline {
+    font-size: var(--size-tag);
+    font-weight: 200;
     line-height: 1.3;
-    margin-bottom: 0.9em;
+    color: var(--ink);
+    margin-top: 0.9em;
+  }
+
+  h1, h2 {
+    font-size: var(--size-h);
+    font-weight: 200;
+    line-height: 1.25;
+    letter-spacing: 0.005em;
+  }
+
+  .desc {
+    font-size: var(--size-desc);
+    font-weight: 200;
+    line-height: 1.3;
+    max-width: 22em;
+    margin-top: 2.6em;
   }
 
   .body {
     font-size: var(--size-body);
-    font-weight: 400;
-    line-height: 1.6;
-    max-width: 48em;
-  }
-  .body + .body { margin-top: 1em; }
-  .body a {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: var(--green);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.2em;
-  }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3vw;
-  }
-  .figure {
-    display: block;
-    font-size: var(--size-figure);
-    font-weight: 300;
-    line-height: 1.2;
-    margin-bottom: 0.3em;
-  }
-  .descriptor {
-    display: block;
-    font-size: var(--size-body);
-    font-weight: 400;
+    font-weight: 200;
     line-height: 1.5;
+    max-width: var(--measure);
+    text-align: left;
   }
+  .body + .body { margin-top: 1.2em; }
+  h2 + .body { margin-top: 1.8em; }
 
-  /* Section 4 */
-  .s4 {
-    justify-content: flex-start;
-    padding-bottom: 0;
+  .company {
+    font-size: var(--size-co);
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--grey);
+    margin-top: 5em;
   }
-  .s4 .content {
+  .company .sub { display: block; font-weight: 200; }
+
+  /* Closing screen: lockup anchored above the footer */
+  .s5 { justify-content: flex-start; padding-bottom: 0; }
+  .s5 .content {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Lockup is anchored at a fixed height above the footer; the lines stack upward from it. */
-    justify-content: flex-end;
-    padding-bottom: 18.56vh;
+    justify-content: center;
+    width: 100%;
   }
-  /* Baseline to baseline = 98px at 48px type: 1.3em line box + 0.7417em. */
-  .s4 .statement + .statement { margin-top: 0.7417em; }
-  .s4 .lockup { margin-top: var(--lockup-gap); }
+  .s5 .lockup { margin-top: 3.5em; }
 
   footer {
     width: 100%;
     text-align: center;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.8;
-    padding: 4vh 0 3.5vh;
+    color: var(--grey);
+    font-size: clamp(12px, 0.78vw, 20px);
+    font-weight: 300;
+    line-height: 1.7;
+    padding: 4vh 0 3vh;
   }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover, footer a:focus-visible { text-decoration: underline; text-underline-offset: 0.2em; }
+  footer .essay { display: block; margin-bottom: 0.3em; }
   footer .caps { text-transform: uppercase; }
   footer .caps, footer a { white-space: nowrap; }
   footer .sep { padding: 0 0.3em; }
-  footer a {
-    color: var(--slate);
-    text-decoration: none;
-  }
+
+  a:focus-visible { outline: 2px solid var(--grey); outline-offset: 3px; }
 
   @media (min-width: 768px) {
-    /* Desktop settles on whole sections. Not on mobile: sections can outgrow the screen there. */
     html { scroll-snap-type: y proximity; }
     section { scroll-snap-align: start; }
-
-    /* Positions follow the Figma frames (1920×1080): tops in vh, x in vw, spacing in em.
-       Line height is the frames' auto line height: 60px @ 48, 30px @ 24. */
-    .s1, .s2, .s3 { justify-content: flex-start; }
-    :is(.s1, .s2, .s3) :is(.statement, .label, .body, .figure, .descriptor) { line-height: 1.25; }
-
-    /* Section 1: block at x 428, top 259, 1,152 wide; line tops 259 / 351 / 492 / 613. */
-    .s1 { padding: 23.98vh 17.71vw 12vh 22.29vw; }
-    .s1 .statement:nth-child(2) { margin-top: 0.6667em; }
-    .s1 .statement:nth-child(3) { margin-top: 0.4375em; }
-    .s1 .until-now { margin-top: 1.2708em !important; }
-
-    /* Section 2: headline top 381, lockup top 570, both centered. */
-    .s2 { padding-top: 35.28vh; }
-    .s2 .lockup { margin-top: 11.94vh; margin-bottom: 0; }
-
-    /* Section 3: x 318; tops 176 / 218 / 395 / 437 / 631 / 673. */
-    .s3 { padding: 16.3vh 8vw 7.4vh 16.56vw; }
-    .s3 .sub + .sub { margin-top: 0; }
-    .s3 .label { margin-bottom: 0; }
-    .s3 .label + .body { margin-top: 0.3958em; }
-    .s3 .sub:nth-child(2) .label { margin-top: 3.3462em; }
-    .s3 .sub:nth-child(3) .label { margin-top: 2.8462em; }
-    .s3 .body { max-width: 66.82vw; } /* 1,283px */
-    .s3 .stats {
-      margin-top: calc(var(--size-label) * 0.3654);
-      grid-template-columns: 30.31vw 30.42vw auto; /* columns at x 318 / 900 / 1484 */
-      gap: 0;
-      max-width: 75.68vw; /* 1,453px */
-    }
-    .s3 .figure { margin-bottom: 0; }
-    .s3 .descriptor { white-space: nowrap; } /* lines break where the frame breaks them */
-
-    /* Section 4: line tops 201 / 299 / 397, lockup top 570, footer 15px type at top 1033,
-       22 tall, 25 from the bottom. */
-    .s4 { padding-top: 0; }
-    .s4 .content { justify-content: flex-start; padding: 18.61vh 0 0; }
-    .s4 .statement { line-height: 1.25; }
-    .s4 .statement + .statement { margin-top: 0.7917em; } /* 98px baseline to baseline */
-    .s4 .lockup { margin-top: 10.46vh; }
-    footer {
-      font-size: clamp(12px, 0.7813vw, 24px);
-      line-height: 1.4667;
-      padding: 0 0 2.315vh;
-    }
-    footer .sep { padding: 0; }
   }
 
   @media (max-width: 767px) {
     :root {
-      --size-large: 28px;
-      --size-label: 20px;
-      --size-figure: 32px;
-      --size-body: 17px;
-      --lockup-width: 180px;
-      --margin-left: 24px;
-      --margin-right: 24px;
+      --size-h: 30px;
+      --size-body: 19px;
+      --size-tag: 17px;
+      --size-desc: 24px;
+      --size-co: 16px;
+      --lockup-w: 190px;
+      --lockup-w-small: 140px;
     }
-    .left { padding-top: 15vh; padding-bottom: 15vh; }
-    .center { padding-left: 24px; padding-right: 24px; }
-    .s3 .sub + .sub { margin-top: 3.5em; }
-    .stats {
-      grid-template-columns: 1fr;
-      gap: 2em;
-    }
+    section { padding: 12vh 24px; }
+    .body { font-weight: 300; }   /* thin weight goes faint on phones in daylight */
+    .desc { margin-top: 2em; }
+    .company { margin-top: 3.5em; }
     footer .sep { padding: 0 0.15em; }
+    footer .caps, footer a { white-space: normal; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
   }
 </style>
 </head>
 <body>
 
-<section class="green s1 left">
-  <p class="statement">Hospitals run on a system of record.</p>
-  <p class="statement">Safety-critical industries — aviation, nuclear, air traffic control — run on a system of control.</p>
-  <p class="statement">Healthcare has never had that.</p>
-  <p class="statement until-now">Until now.</p>
+<section class="s1">
+  <img class="lockup" src="assets/opta-lockup-ring.png" alt="Opta" width="430" height="579">
+  <p class="tagline">The whole team.&nbsp; The whole picture.</p>
+  <h1 class="desc">Improve the care experience for patients and providers by letting the team see what’s ahead and act in time.</h1>
+  <p class="company">Opta Health, Inc.<span class="sub">Santa Barbara, CA</span></p>
 </section>
 
-<section class="green s2 center">
-  <p class="statement">We’re building the operational control layer for hospitals.</p>
-  <img class="lockup" src="assets/opta-lockup.svg" alt="Opta">
+<section class="s2">
+  <h2>Introducing Opta</h2>
+  <p class="body">Opta is a layer that sits alongside the system of record and adds operational control to improve the care experience for patients and providers. It delivers measurable improvement in operational outcomes.</p>
+  <p class="body">It works with the systems hospitals already run, and it never replaces a clinician’s judgment.</p>
 </section>
 
-<section class="white s3 left">
-  <div class="sub">
-    <h2 class="label">What Opta Does</h2>
-    <p class="body">Opta maintains a live picture of your entire physical operation — every room, team, and piece of equipment — sees delays while they are still forming, and acts in time to prevent them. It runs alongside your record system, and it stays silent when acting would not help. Every recovery it claims is measured on your own records, not estimated on ours.</p>
-  </div>
-
-  <div class="sub">
-    <h2 class="label">AI, Applied Safely</h2>
-    <p class="body">Opta is a model for how to use AI safely and responsibly to help you realize the care capacity you’ve already paid for. It runs on an architecture that is safer than an AI agent — by construction. Intelligence proposes, and nothing acts on its own reasoning. And it runs without a frontier model at runtime, so the operation it serves adds nothing to the compute footprint the world is now weighing.<br><a href="/essay/">Read the essay: What stands between the model and the operation</a></p>
-  </div>
-
-  <div class="sub">
-    <h2 class="label">Built by People Who Have Done it Before</h2>
-    <div class="stats">
-      <p><span class="figure">33</span><!-- PATENTS PENDING count: edit the number to the left --><span class="descriptor">patents pending<br>on the architecture</span></p>
-      <p><span class="figure">16</span><span class="descriptor">years designing closed-loop<br>control systems, with six<br>patents issued</span></p>
-      <p><span class="figure">28</span><span class="descriptor">years as a board-certified<br>emergency physician</span></p>
-    </div>
-  </div>
+<section class="s3">
+  <h2>Opta sees what’s ahead and<br>helps the team act in time</h2>
+  <p class="body">Opta maintains a live picture of the floor, sees potential problems and opportunities as they develop, calculates appropriate responses, surfaces them to the right clinician in time to act, and logs the result for transparency.</p>
+  <p class="body">The result is a better care experience for patients, time for staff to act, and measurably improved operating metrics for hospitals.</p>
 </section>
 
-<section class="green s4 center">
+<section class="s4">
+  <h2>Built on deep<br>domain expertise</h2>
+  <p class="body">Opta’s team includes a board-certified emergency physician with twenty-eight years’ experience and an AI-native systems architect who’s spent the last sixteen years building closed-loop control systems.</p>
+  <p class="body">The result is a control layer with <span class="patents">thirty-three</span><!-- PATENTS PENDING: edit the number --> patents pending that lets clinicians see what’s ahead to deliver a better care experience.</p>
+</section>
+
+<section class="s5">
   <div class="content">
-    <p class="statement">Sees the delays forming.</p>
-    <p class="statement">Acts while there’s still time.</p>
-    <p class="statement">Proves what it recovered.</p>
-    <img class="lockup" src="assets/opta-lockup.svg" alt="Opta">
+    <h2>Work with us</h2>
+    <p class="body">If you would like to learn more about Opta, we would welcome the opportunity to talk with you.&nbsp; Opta is early stage and offers an opportunity to help shape the next era of care.</p>
+    <p class="body">We invite you to join us.</p>
+    <img class="lockup small" src="assets/opta-lockup-ring.png" alt="Opta" width="430" height="579">
+    <p class="tagline">The whole team.&nbsp; The whole picture.</p>
   </div>
   <footer>
-    <span class="caps">© 2026 Opta Health, Inc.</span> <span class="sep">|</span> <span class="caps">Santa Barbara, California</span> <span class="sep">|</span> <a href="mailto:cleveland.motley@opta.health">information@opta.health</a> <span class="sep">|</span> <a href="mailto:cleveland.motley@opta.health">press@opta.health</a> <span class="sep">|</span> <a href="mailto:cleveland.motley@opta.health">careers@opta.health</a>
+    <a class="essay" href="/essay/">Read the essay:&nbsp; What Stands Between the Model and the Operation?</a>
+    <span class="caps">© 2026 Opta Health, Inc.</span> <span class="sep">|</span> <span class="caps">Santa Barbara, CA</span> <span class="sep">|</span> <a href="mailto:cleveland.motley@opta.health">information@opta.health</a> <span class="sep">|</span> <a href="mailto:cleveland.motley@opta.health">press@opta.health</a> <span class="sep">|</span> <a href="mailto:cleveland.motley@opta.health">careers@opta.health</a>
   </footer>
 </section>
 
