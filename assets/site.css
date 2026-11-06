@@ -1,0 +1,181 @@
+  /* Essential Sans (Jen Wagner Co) — Thin for all copy, Regular where weight is needed. Licensed webfonts, self-hosted. */
+  @font-face { font-family: 'Essential Sans'; font-weight: 200; font-style: normal; font-display: swap; src: url('fonts/EssentialSans-Thin.woff2') format('woff2'); }
+  @font-face { font-family: 'Essential Sans'; font-weight: 400; font-style: normal; font-display: swap; src: url('fonts/EssentialSans-Regular.woff2') format('woff2'); }
+
+  :root {
+    --ink: #111111;        /* headlines and body */
+    --grey: #726d6d;       /* wordmark, company line, footer */
+    --page: #FFFFFF;
+
+    /* Sizes are specified at 1920px wide and scale with the viewport. */
+    --size-h: clamp(30px, 2.9vw, 72px);          /* 56px @ 1920 — section headlines */
+    --size-body: clamp(19px, 1.5625vw, 44px);    /* 30px @ 1920 */
+    --size-tag: clamp(17px, 1.3vw, 36px);        /* 25px @ 1920 — tagline under the wordmark */
+    --size-desc: clamp(22px, 2.08vw, 56px);      /* 40px @ 1920 — hero descriptor */
+    --size-co: clamp(15px, 1.2vw, 30px);         /* company line */
+    --lockup-w: clamp(170px, 14.6vw, 420px);     /* 280px @ 1920 (mark + wordmark) */
+    --lockup-w-small: clamp(120px, 9.4vw, 260px);/* 180px @ 1920 on the closing screen */
+    --measure: 36em;                             /* body line length */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Essential Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 200;
+    color: var(--ink);
+    background: var(--page);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 9vh 8vw;
+  }
+  .s1 { min-height: 100vh; min-height: 100svh; padding-top: 7vh; padding-bottom: 7vh; }
+  .s5 { padding-bottom: 0; }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  .lockup { width: var(--lockup-w); display: flex; flex-direction: column; align-items: center; }
+  .lockup .mark { width: 80%; }
+  .lockup .wordmark { width: 100%; margin-top: 22%; }
+  .lockup.small { width: var(--lockup-w-small); }
+
+  .tagline {
+    font-size: var(--size-tag);
+    font-weight: 200;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-top: 0.9em;
+  }
+
+  h1, h2 {
+    font-size: var(--size-h);
+    font-weight: 200;
+    line-height: 1.25;
+    letter-spacing: 0.005em;
+  }
+
+  .desc {
+    font-size: var(--size-desc);
+    font-weight: 200;
+    line-height: 1.3;
+    max-width: 22em;
+    margin-top: 2.2em;
+  }
+
+  .body {
+    font-size: var(--size-body);
+    font-weight: 200;
+    line-height: 1.5;
+    max-width: var(--measure);
+    text-align: left;
+  }
+  .body + .body { margin-top: 1.2em; }
+  h2 + .body { margin-top: 1.5em; }
+
+  .company {
+    font-size: var(--size-co);
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--grey);
+    margin-top: 5em;
+  }
+  .company .sub { display: block; font-weight: 200; }
+
+  /* Closing screen: lockup anchored above the footer */
+  .s5 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .s5 .lockup { margin-top: 3em; }
+
+  footer {
+    width: 100%;
+    text-align: center;
+    color: var(--grey);
+    font-size: clamp(12px, 0.78vw, 20px);
+    font-weight: 400;
+    line-height: 1.7;
+    padding: 5vh 0 3vh;
+  }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover, footer a:focus-visible { text-decoration: underline; text-underline-offset: 0.2em; }
+  footer .essay { display: block; margin-bottom: 0.3em; }
+  footer .caps { text-transform: uppercase; }
+  footer .caps, footer a { white-space: nowrap; }
+  footer .sep { padding: 0 0.3em; }
+
+  a:focus-visible { outline: 2px solid var(--grey); outline-offset: 3px; }
+
+
+  @media (max-width: 767px) {
+    :root {
+      --size-h: 30px;
+      --size-body: 19px;
+      --size-tag: 17px;
+      --size-desc: 24px;
+      --size-co: 16px;
+      --lockup-w: 190px;
+      --lockup-w-small: 140px;
+    }
+    section { padding: 8vh 24px; }
+    .body { font-weight: 400; }   /* thin weight goes faint on phones in daylight */
+    .desc { margin-top: 2em; }
+    .company { margin-top: 3.5em; }
+    footer .sep { padding: 0 0.15em; }
+    footer .caps, footer a { white-space: normal; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  /* ---- second-tier pages ---- */
+  nav.site { width: 100%; text-align: center; padding: 3.2vh 8vw 0; font-size: clamp(14px, 0.95vw, 22px); font-weight: 400; color: var(--grey); letter-spacing: 0.01em; }
+  nav.site a { color: inherit; text-decoration: none; padding: 0 0.2em; }
+  nav.site a:hover, nav.site a:focus-visible { color: var(--ink); }
+  nav.site .sep { padding: 0 0.45em; opacity: 0.6; }
+  nav.site a.here { color: var(--ink); }
+  .page section { min-height: 0; padding: 9vh 8vw; }
+  .page section:first-of-type { padding-top: 6vh; }
+  .page .lead { font-size: var(--size-body); font-weight: 200; line-height: 1.5; max-width: var(--measure); text-align: left; margin-top: 1.5em; }
+  .page .items { font-size: var(--size-body); max-width: var(--measure); text-align: left; margin-top: 1.4em; }
+  .page .items p { font-size: var(--size-body); font-weight: 200; line-height: 1.5; }
+  .page .items p + p { margin-top: 1.1em; }
+  .page .items b { font-weight: 400; }
+  .page .close { font-size: var(--size-body); font-weight: 400; line-height: 1.5; max-width: var(--measure); text-align: center; margin-top: 1.8em; }
+  .page .s5 { padding-bottom: 0; }
+  .page .mark.small { width: var(--lockup-w-small); }
+  .more { display: inline-block; margin-top: 1.4em; font-size: var(--size-body); font-weight: 400; color: var(--grey); text-decoration: none; }
+  .more:hover, .more:focus-visible { color: var(--ink); }
+  .team { font-size: var(--size-body); display: flex; flex-wrap: wrap; justify-content: center; gap: 4vw; max-width: 60em; margin-top: 2.2em; }
+  .person { flex: 1 1 15em; max-width: 19em; text-align: left; }
+  .person img { width: 9.5em; height: 9.5em; object-fit: cover; border-radius: 50%; background: #ececec; margin-bottom: 0.9em; }
+  .person h3 { font-size: calc(var(--size-body) * 1.05); font-weight: 400; line-height: 1.3; }
+  .person .role { font-size: calc(var(--size-body) * 0.85); font-weight: 400; color: var(--grey); margin: 0.15em 0 0.7em; }
+  .person p { font-size: calc(var(--size-body) * 0.92); font-weight: 200; line-height: 1.5; }
+  .essays { font-size: var(--size-body); max-width: var(--measure); text-align: left; margin-top: 1.6em; }
+  .essays a { display: block; color: var(--ink); text-decoration: none; font-size: var(--size-body); font-weight: 400; line-height: 1.4; }
+  .essays a:hover, .essays a:focus-visible { text-decoration: underline; text-underline-offset: 0.2em; }
+  .essays .date { font-size: calc(var(--size-body) * 0.85); font-weight: 200; color: var(--grey); margin-top: 0.2em; }
+  .essays .blurb { font-size: calc(var(--size-body) * 0.95); font-weight: 200; line-height: 1.5; margin-top: 0.4em; }
+  @media (max-width: 767px) {
+    nav.site { padding: 20px 24px 0; }
+    nav.site .sep { padding: 0 0.3em; }
+    .page section { padding: 7vh 24px; }
+    .page .items p, .page .lead, .page .close, .person p, .essays .blurb { font-weight: 400; }
+    .team { gap: 32px; }
+    .page h2 br { display: none; }
+    .page .items b { display: block; }
+  }

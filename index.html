@@ -17,150 +17,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=3">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/EssentialSans-Thin.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-  /* Essential Sans (Jen Wagner Co) — Thin for all copy, Regular where weight is needed. Licensed webfonts, self-hosted. */
-  @font-face { font-family: 'Essential Sans'; font-weight: 200; font-style: normal; font-display: swap; src: url('assets/fonts/EssentialSans-Thin.woff2') format('woff2'); }
-  @font-face { font-family: 'Essential Sans'; font-weight: 400; font-style: normal; font-display: swap; src: url('assets/fonts/EssentialSans-Regular.woff2') format('woff2'); }
-
-  :root {
-    --ink: #111111;        /* headlines and body */
-    --grey: #726d6d;       /* wordmark, company line, footer */
-    --page: #FFFFFF;
-
-    /* Sizes are specified at 1920px wide and scale with the viewport. */
-    --size-h: clamp(30px, 2.9vw, 72px);          /* 56px @ 1920 — section headlines */
-    --size-body: clamp(19px, 1.5625vw, 44px);    /* 30px @ 1920 */
-    --size-tag: clamp(17px, 1.3vw, 36px);        /* 25px @ 1920 — tagline under the wordmark */
-    --size-desc: clamp(22px, 2.08vw, 56px);      /* 40px @ 1920 — hero descriptor */
-    --size-co: clamp(15px, 1.2vw, 30px);         /* company line */
-    --lockup-w: clamp(170px, 14.6vw, 420px);     /* 280px @ 1920 (mark + wordmark) */
-    --lockup-w-small: clamp(120px, 9.4vw, 260px);/* 180px @ 1920 on the closing screen */
-    --measure: 36em;                             /* body line length */
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
-
-  body {
-    font-family: 'Essential Sans', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 200;
-    color: var(--ink);
-    background: var(--page);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 9vh 8vw;
-  }
-  .s1 { min-height: 100vh; min-height: 100svh; padding-top: 7vh; padding-bottom: 7vh; }
-  .s5 { padding-bottom: 0; }
-
-  img { display: block; max-width: 100%; height: auto; }
-
-  .lockup { width: var(--lockup-w); display: flex; flex-direction: column; align-items: center; }
-  .lockup .mark { width: 80%; }
-  .lockup .wordmark { width: 100%; margin-top: 22%; }
-  .lockup.small { width: var(--lockup-w-small); }
-
-  .tagline {
-    font-size: var(--size-tag);
-    font-weight: 200;
-    line-height: 1.3;
-    color: var(--ink);
-    margin-top: 0.9em;
-  }
-
-  h1, h2 {
-    font-size: var(--size-h);
-    font-weight: 200;
-    line-height: 1.25;
-    letter-spacing: 0.005em;
-  }
-
-  .desc {
-    font-size: var(--size-desc);
-    font-weight: 200;
-    line-height: 1.3;
-    max-width: 22em;
-    margin-top: 2.2em;
-  }
-
-  .body {
-    font-size: var(--size-body);
-    font-weight: 200;
-    line-height: 1.5;
-    max-width: var(--measure);
-    text-align: left;
-  }
-  .body + .body { margin-top: 1.2em; }
-  h2 + .body { margin-top: 1.5em; }
-
-  .company {
-    font-size: var(--size-co);
-    font-weight: 400;
-    line-height: 1.45;
-    color: var(--grey);
-    margin-top: 5em;
-  }
-  .company .sub { display: block; font-weight: 200; }
-
-  /* Closing screen: lockup anchored above the footer */
-  .s5 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  .s5 .lockup { margin-top: 3em; }
-
-  footer {
-    width: 100%;
-    text-align: center;
-    color: var(--grey);
-    font-size: clamp(12px, 0.78vw, 20px);
-    font-weight: 400;
-    line-height: 1.7;
-    padding: 5vh 0 3vh;
-  }
-  footer a { color: inherit; text-decoration: none; }
-  footer a:hover, footer a:focus-visible { text-decoration: underline; text-underline-offset: 0.2em; }
-  footer .essay { display: block; margin-bottom: 0.3em; }
-  footer .caps { text-transform: uppercase; }
-  footer .caps, footer a { white-space: nowrap; }
-  footer .sep { padding: 0 0.3em; }
-
-  a:focus-visible { outline: 2px solid var(--grey); outline-offset: 3px; }
-
-
-  @media (max-width: 767px) {
-    :root {
-      --size-h: 30px;
-      --size-body: 19px;
-      --size-tag: 17px;
-      --size-desc: 24px;
-      --size-co: 16px;
-      --lockup-w: 190px;
-      --lockup-w-small: 140px;
-    }
-    section { padding: 8vh 24px; }
-    .body { font-weight: 400; }   /* thin weight goes faint on phones in daylight */
-    .desc { margin-top: 2em; }
-    .company { margin-top: 3.5em; }
-    footer .sep { padding: 0 0.15em; }
-    footer .caps, footer a { white-space: normal; }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    html { scroll-behavior: smooth; }
-  }
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
@@ -174,21 +31,24 @@
   <h2>Introducing Opta</h2>
   <p class="body">Opta is a layer that sits alongside the system of record and adds operational control, so the day runs the way it was planned. It delivers measurable improvement in operational outcomes.</p>
   <p class="body">It works with the systems you already run, and it never replaces a clinician’s judgment.</p>
+  <a class="more" href="/platform/">How it works →</a>
 </section>
 
 <section class="s3">
   <h2>Opta sees what’s ahead and<br>helps the team act in time</h2>
   <p class="body">Opta maintains a live picture of the floor, sees potential problems and opportunities as they develop, calculates appropriate responses, surfaces them to the right clinician in time to act, and logs the result for transparency.</p>
   <p class="body">The result is a better care experience for patients, time for staff to act, and measurably improved operating metrics for hospitals.</p>
+  <a class="more" href="/deployment/">How a deployment goes →</a>
 </section>
 
 <section class="s4">
   <h2>Built on deep<br>domain expertise</h2>
   <p class="body">Opta’s team includes a board-certified emergency physician with twenty-eight years’ experience and an AI-native systems architect who’s spent the last sixteen years building closed-loop control systems.</p>
   <p class="body">The outcome is a control layer with <span class="patents">thirty-three</span><!-- PATENTS PENDING: edit the number --> patents pending that lets clinicians see what’s ahead, and act.</p>
+  <a class="more" href="/team/">Meet the team →</a>
 </section>
 
-<section class="s5">
+<section class="s5" id="work">
   <div class="content">
     <h2>Work with us</h2>
     <p class="body">If you would like to learn more about Opta, we would welcome the opportunity to talk with you.&nbsp; Opta is early stage and offers an opportunity to help shape the next era of care.</p>
@@ -197,7 +57,7 @@
     <p class="tagline">The whole team.&nbsp; The whole picture.</p>
   </div>
   <footer>
-    <a class="essay" href="/essay/">Read the essay:&nbsp; What Stands Between the Model and the Operation?</a>
+    <span class="essay"><a href="/platform/">Platform</a> <span class="sep">|</span> <a href="/deployment/">Deployment</a> <span class="sep">|</span> <a href="/team/">Team</a> <span class="sep">|</span> <a href="/essays/">Essays</a></span>
     <span class="caps">© 2026 Opta Health, Inc.</span> <span class="sep">|</span> <span class="caps">Santa Barbara, CA</span> <span class="sep">|</span> <a href="mailto:information@opta.health">information@opta.health</a> <span class="sep">|</span> <a href="mailto:press@opta.health">press@opta.health</a> <span class="sep">|</span> <a href="mailto:careers@opta.health">careers@opta.health</a>
   </footer>
 </section>
